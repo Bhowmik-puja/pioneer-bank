@@ -86,15 +86,17 @@
         withdrawBtn.addEventListener("click",function(){
             const withdrawNumber = getInputNumber("withdraw-amount");
             updateSpanText("add-withdraw", withdrawNumber);
+            updateSpanText("current-balance",-1 * withdrawNumber);
             document.getElementById("withdraw-amount").value="";
+
         })
 
+        //functions
         function getInputNumber (id){
             const Amount = document.getElementById(id).value;
             const AmountNumber = parseFloat(Amount);
             return AmountNumber;
         }
-
         function updateSpanText (id,depositNumber){
 
             const current = document.getElementById(id).innerText;
