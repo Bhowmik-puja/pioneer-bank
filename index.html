@@ -75,9 +75,17 @@
         const depositBtn = document.getElementById("deposit");
         depositBtn.addEventListener("click",function(){
             const depositNumber = getInputNumber("deposit-amount");
-            updateSpanText("current-deposit", depositNumber);
-            updateSpanText("current-balance",depositNumber);
-            document.getElementById("deposit-amount").value = "";
+            //negative number alert
+            if(depositNumber<0){
+                alert("Deposit Number cannot be negative");
+
+            }
+            else{
+                updateSpanText("current-deposit", depositNumber);
+                updateSpanText("current-balance",depositNumber);
+                document.getElementById("deposit-amount").value = "";
+            }
+            
 
            
         })
@@ -90,7 +98,7 @@
             document.getElementById("withdraw-amount").value="";
 
         })
-
+    
         //functions
         function getInputNumber (id){
             const Amount = document.getElementById(id).value;
